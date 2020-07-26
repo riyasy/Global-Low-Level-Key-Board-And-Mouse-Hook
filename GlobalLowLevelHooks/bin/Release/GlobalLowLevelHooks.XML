@@ -9,10 +9,26 @@
             Class for intercepting low level keyboard hooks
             </summary>
         </member>
-        <member name="F:GlobalLowLevelHooks.KeyboardHook.WM_KEYDOWN">
+        <member name="P:GlobalLowLevelHooks.KeyboardHook.DisablePassThrough">
             <summary>
-            Low-Level function declarations
+            Disables keyboard input to other applications
             </summary>
+        </member>
+        <member name="T:GlobalLowLevelHooks.KeyboardHook.VKeys">
+            <summary>
+            Virtual Keys
+            </summary>
+        </member>
+        <member name="T:GlobalLowLevelHooks.KeyboardHook.KeyboardHookHandler">
+            <summary>
+            Internal callback processing function
+            </summary>
+        </member>
+        <member name="T:GlobalLowLevelHooks.KeyboardHook.KeyboardHookCallback">
+            <summary>
+            Function that will be called when defined events occur
+            </summary>
+            <param name="key">VKeys</param>
         </member>
         <member name="F:GlobalLowLevelHooks.KeyboardHook.hookID">
             <summary>
@@ -46,26 +62,31 @@
             Destructor. Unhook current hook
             </summary>
         </member>
-        <member name="T:GlobalLowLevelHooks.KeyboardHook.VKeys">
+        <member name="F:GlobalLowLevelHooks.KeyboardHook.WM_KEYDOWN">
             <summary>
-            Virtual Keys
+            Low-Level function declarations
             </summary>
-        </member>
-        <member name="T:GlobalLowLevelHooks.KeyboardHook.KeyboardHookHandler">
-            <summary>
-            Internal callback processing function
-            </summary>
-        </member>
-        <member name="T:GlobalLowLevelHooks.KeyboardHook.KeyboardHookCallback">
-            <summary>
-            Function that will be called when defined events occur
-            </summary>
-            <param name="key">VKeys</param>
         </member>
         <member name="T:GlobalLowLevelHooks.MouseHook">
             <summary>
             Class for intercepting low level Windows mouse hooks.
             </summary>
+        </member>
+        <member name="P:GlobalLowLevelHooks.MouseHook.DisablePassThrough">
+            <summary>
+            Disables keyboard input to other applications
+            </summary>
+        </member>
+        <member name="T:GlobalLowLevelHooks.MouseHook.MouseHookHandler">
+            <summary>
+            Internal callback processing function
+            </summary>
+        </member>
+        <member name="T:GlobalLowLevelHooks.MouseHook.MouseHookCallback">
+            <summary>
+            Function to be called when defined even occurs
+            </summary>
+            <param name="mouseStruct">MSLLHOOKSTRUCT mouse structure</param>
         </member>
         <member name="F:GlobalLowLevelHooks.MouseHook.hookID">
             <summary>
@@ -99,17 +120,6 @@
             <summary>
             Callback function
             </summary>
-        </member>
-        <member name="T:GlobalLowLevelHooks.MouseHook.MouseHookHandler">
-            <summary>
-            Internal callback processing function
-            </summary>
-        </member>
-        <member name="T:GlobalLowLevelHooks.MouseHook.MouseHookCallback">
-            <summary>
-            Function to be called when defined even occurs
-            </summary>
-            <param name="mouseStruct">MSLLHOOKSTRUCT mouse structure</param>
         </member>
     </members>
 </doc>

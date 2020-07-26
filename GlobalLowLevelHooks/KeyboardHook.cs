@@ -10,6 +10,14 @@ namespace GlobalLowLevelHooks
     public class KeyboardHook
     {
         /// <summary>
+        /// Disables keyboard input to other applications
+        /// </summary>
+        public bool DisablePassThrough
+        {
+            get; set;
+        }
+
+        /// <summary>
         /// Virtual Keys
         /// </summary>
         public enum VKeys
@@ -283,7 +291,7 @@ namespace GlobalLowLevelHooks
                         KeyUp((VKeys)Marshal.ReadInt32(lParam));
             }
 
-            return CallNextHookEx(hookID, nCode, wParam, lParam);
+            return DisablePassThrough? new IntPtr(100) : CallNextHookEx(hookID, nCode, wParam, lParam);            
         }
 
         /// <summary>

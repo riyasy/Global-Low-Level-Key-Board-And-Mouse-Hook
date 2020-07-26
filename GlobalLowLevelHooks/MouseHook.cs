@@ -7,8 +7,16 @@ namespace GlobalLowLevelHooks
     /// <summary>
     /// Class for intercepting low level Windows mouse hooks.
     /// </summary>
-    class MouseHook
+    public class MouseHook
     {
+        /// <summary>
+        /// Disables keyboard input to other applications
+        /// </summary>
+        public bool DisablePassThrough
+        {
+            get; set;
+        }
+
         /// <summary>
         /// Internal callback processing function
         /// </summary>
@@ -115,7 +123,7 @@ namespace GlobalLowLevelHooks
                     if (MiddleButtonUp != null)
                         MiddleButtonUp((MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT)));
             }
-            return CallNextHookEx(hookID, nCode, wParam, lParam);
+            return DisablePassThrough ? new IntPtr(100) : CallNextHookEx(hookID, nCode, wParam, lParam);
         }
 
         #region WinAPI
